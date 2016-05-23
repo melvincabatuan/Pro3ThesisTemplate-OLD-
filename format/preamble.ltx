@@ -1,0 +1,254 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% this document format relies on the memoir class
+\documentclass[12pt, letterpaper, oneside, openright, onecolumn, final]{memoir}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% the following are for typesetting math symbols, equations, etc.
+
+\usepackage[cmex10]{amsmath} % for providing many useful and powerful commands for dealing with math typesetting using AMS facilities; the cmex10 option ensures that only type 1 fonts will utilized at all point sizes. Without this option, it is possible that some math symbols, particularly those within footnotes, will be rendered in bitmap form.
+
+\usepackage{amssymb} % for AMS math symbols for dealing with mathematics
+
+\usepackage[OMLmathsfit]{isomath} % for typesetting mathematical styles that conform to the International Standard ISO 80000-2 
+\renewcommand*{\vec}{\vectorsym} % redefine \vec to comply with ISO 31-11
+
+\usepackage{mathrsfs} % for roman script fonts
+
+%\usepackage{mdwmath} % for formatting equations
+
+\usepackage{array} % for array environments to provide better appearance and additional user controls, especially in equation arrays
+
+\usepackage{xintexpr} % for evaluating simple math expressions with with infix operators
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% the following are for typesetting figures, tables, arrays
+
+\usepackage{graphicx} % for putting figures
+\graphicspath{{figure/}}
+
+\usepackage{multicol} % for multicolumns in tabular environment
+
+\usepackage{multirow} % for multirows in tabular environment
+
+\usepackage{rotating} % for rotating figures and tables
+
+\usepackage{pdflscape} % for landscape tables with their left side on top of the screen
+
+\usepackage{mdwtab} % mdwmath and mdwtab for formatting equations and tables
+
+\usepackage{ltablex} % for long tables that can span more than one page; better for this format than longtable or supertabular package
+
+\usepackage{eqparbox} % for creating  (automatically sized) equal width boxes - aka "natural width parboxes"
+
+\usepackage{caption} % for modifying caption setups
+\captionsetup[table]{
+   name=Table,
+   listformat=simple,
+   justification=centering,
+   labelsep=quad,
+   position=above,
+   skip=\onelineskip,
+   labelfont={sc},
+   font={sc}
+}
+\captionsetup[figure]{
+   name=Fig.,
+   listformat=simple,
+   justification=centering,
+   labelsep=quad,
+   position=below,
+   skip=\onelineskip,
+   labelfont={normalfont},
+   font={normalfont}
+}
+
+\usepackage{excludeonly} % for excluding TEX files in the begin{document}-end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% the following are for formatting the text typesetting and their arrangements
+
+\usepackage{microtype} % for improving text and whitespace lenths
+
+\usepackage{textcase} % for case conversion ignoring mathematics, etc.
+
+\usepackage{verbatim} % for commenting & quoting, e.g. LaTeX codes
+
+\usepackage{blindtext} % for creating an random contents for sections, lists, equations
+
+\usepackage{datetime} % for obtaining time info
+\newdateformat{monthyeardate}{\monthname[\THEMONTH], \THEYEAR}
+
+\usepackage{comment} % for commenting portions of the .tex contents in the document
+
+\renewcommand{\rmdefault}{ptm} % for setting Times font as the default for the roman-font 
+
+\renewcommand{\sfdefault}{phv} % for setting Helvetica font as the default for the san-serif font 
+
+\renewcommand\contentsname{Table of Contents} % for changing TOC name
+
+\renewcommand\bibname{References} % for changing bibliography name
+
+%LaTeX has a parameter for 'penalty' for widows and orphans ('club lines' in LaTeX terminology). With the greater penalty LaTeX will try more to avoid widows and orphans. 
+%\widowpenalty=600
+%\clubpenalty=600
+
+\usepackage{notoccite} % for preventing trouble from citations in table of contents, etc; it seems that this should be loaded after the caption package
+
+\maxsecnumdepth{subsubsection} % chapters, sections, and subsections are numbered
+
+\maxtocdepth{subsubsection} % chapters, sections, and subsections are in the table of contents
+
+% the following is for changing item spacing (i.e. in between entries) in the bibliography
+\let\revisedreferences\thebibliography
+\renewcommand\thebibliography[1]{
+																	\revisedreferences{#1}
+																	\setlength{\parskip}{0.5ex}
+																	\setlength{\itemsep}{0.5ex plus 0.05ex}
+																} 
+
+\usepackage{color} % for coloring
+
+\usepackage{xcolor} % for using pre-defined color names or defining them
+\definecolor{lightgray}{gray}{0.925} % for defining a color
+
+% the following is for placing chapter contents after chapter title
+\usepackage{titletoc} 
+\newcommand\partialtocname{Contents}
+\newcommand\ToCrule{\noindent\rule[5pt]{\textwidth}{1.3pt}}
+\newcommand\ToCtitle{{\large \bfseries \sffamily \partialtocname}
+                      \vskip2pt\ToCrule}
+\makeatletter
+\newcommand\Mprintcontents{%
+  \ToCtitle
+  \ttl@printlist[chapters]{toc}{}{1}{}\par\nobreak
+  \ToCrule}
+\makeatother
+
+\usepackage{hyperref} % for hyperlinking
+
+\usepackage{url} % for providing better support for handling and breaking URLs
+
+\usepackage{pdfpages} % for including multipage PDF documents, must be placed after the color package 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% the following is for programming-language related formatting and imlementation 
+
+\usepackage{algorithmic} % for providing an environment for describing algorithms
+
+\usepackage{tikz} % for producing vector graphics from a geometric/algebraic description 
+
+\usepackage{pgffor} % for looping 
+
+\usepackage{etoolbox} % for class and package programming facilities 
+
+\usepackage{alphalph} % for convert numbers to letters
+
+\usepackage{listings} % for quoting source codes
+\lstset{breaklines=true}
+\lstset{numbers=left,%
+        numberstyle=\tiny\sffamily, numbersep=10pt, captionpos=t} 
+\lstset{backgroundcolor=\color{lightgray}}
+\lstset{basicstyle=\scriptsize\ttfamily}
+\lstset{tabsize=3}
+\lstset{xleftmargin=20pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% the following are memoir-dependent commands for fomatting the document
+
+\newsubfloat{figure}% for allowing subfloats, i.e. \subbottom and \subtop in figure environment in memoir
+
+\DoubleSpacing % do not use setspace package with memoir
+
+% the following is for setting uppercase chapter titles in TOC in memoir 
+\makeatletter
+\settocpreprocessor{chapter}{\let\tempf@rtoc\f@rtoc%
+    \def\f@rtoc{\texorpdfstring{\MakeTextUppercase{\tempf@rtoc}}{\tempf@rtoc}}}
+\makeatother	
+
+\renewcommand*\cftappendixname{\appendixname~} % for prefixing the word 'Appendix' for each appendix in the TOC appendix in memoir
+
+\renewcommand*\cftchaptername{\chaptername~} % for prefixing the word 'Chapter' for each appendix in the TOC appendix in memoir
+
+% the following are for the chapter and section headings in memoir
+\chapterstyle{default} % closest chapter style to the format
+
+\setlength\beforechapskip{-\baselineskip} % for removing the space from the border to the chapter title
+
+\setlength\midchapskip{0.0025\baselineskip}
+
+\renewcommand{\printchaptertitle}[1]{\chaptitlefont \normalfont \LARGE 
+\bfseries \sffamily \raggedright \MakeUppercase{#1}} % for formatting chapter name
+
+\renewcommand{\chapnamefont}{\normalfont \LARGE \bfseries \sffamily} % for formatting chapter name
+
+\renewcommand{\chapnumfont}{\normalfont \LARGE \bfseries \sffamily} % for formatting chapter number
+
+%% the following 2 lines are for putting dot after the chapter number
+%\renewcommand{\thechapter}{\arabic{chapter}.}
+%\renewcommand{\thesection}{\thechapter\arabic{section}}
+
+%% the following 3 lines are for removing the dot after the chapter number in figure IDs and table IDs in the captions, and also in the equations
+%\renewcommand{\thefigure}{\thechapter\arabic{figure}}
+%\renewcommand{\thetable}{\thechapter\arabic{table}}
+%\renewcommand{\theequation}{\thechapter\arabic{equation}}
+
+\setsecheadstyle{\normalfont\Large\bfseries\sffamily} % for formatting section name
+
+\setsubsecheadstyle{\normalfont\large\bfseries\sffamily} % for formatting subsection name    
+
+\setsubsubsecheadstyle{\normalfont\normalsize\bfseries\sffamily} % for formatting subsubsection name   
+
+%% the following hidsection, hidsubsection, and hidsubsubsections are for hiding them from the TOC in memoir
+%\newcommand{\hidsection}[1]{
+	%\stepcounter{section}
+	%\section*{\arabic{chapter}.\arabic{section}\hspace{1em}{#1}}}
+%\newcommand{\hidsubsection}[1]{
+	%\stepcounter{subsection}
+	%\subsection*{\arabic{chapter}.\arabic{section}.\arabic{subsection}\hspace{1em}{#1}}}
+%\newcommand{\hidsubsubsection}[1]{
+	%\stepcounter{subsubsection}
+	%\subsubsection*{\arabic{chapter}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}\hspace{1em}{#1}}}
+
+%%\addtopsmarks{headings}{}{\createmark{chapter}{both}{shownumber}{}{ \ }} % for removing the word 'CHAPTER' from the header in the plain pagestyle in memoir
+
+\nouppercaseheads
+\makepagestyle{farfrombound}
+\makeevenhead{farfrombound}{}{}{}
+\makeoddhead{farfrombound}{}{}{\rightmark}
+\makeevenfoot{farfrombound}{}{}{}
+\makeoddfoot{farfrombound}{}{}{\thepage}
+\makepsmarks{farfrombound}{
+		                 \createmark{chapter}{both}{shownumber}{}{.\hspace{0.5em}}}
+
+\pagestyle{farfrombound}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% for defining conditions in turning on and off certain portions of the document
+
+\newif\ifPutLineNumbers % for putting line numbers
+
+\newif\ifFigures % for rendering of figures
+
+\newif\ifGroupID % for group ID
+
+\newif\ifResultDiscuss % for putting results and discussions
+
+\newif\ifConc % for putting conclusions
+
+\newif\ifFinished % for final manuscript
+
+\newif\ifGrad % for graduate school format
+
+\newif\ifPhD % for PhD dissertation
+
+\newif\ifPubList % for putting publication list
+
+\newif\ifVita % for putting author(s) vita
+
+\newif\ifIndex % for putting index
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% the following is for defining multiple authors
+\newcommand{\defineAuthor}[2]{\expandafter \newcommand 
+                              \csname remark-#1\endcsname{#2}}
+\newcommand{\documentAuthor}[1]{\csname remark-#1\endcsname}

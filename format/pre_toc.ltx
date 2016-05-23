@@ -1,0 +1,356 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{
+\thispagestyle{empty}
+\begin{SingleSpace}
+	{
+		\centering
+		\includegraphics[width=0.14\textwidth]{../format/DLSU_Logo} 
+		\vspace{4ex}
+
+		\ifGrad
+			\begin{Spacing}{1.5} 
+				{\bfseries \Large \MakeTextUppercase{\documentTitle}}
+			\end{Spacing}
+		\else
+			\begin{Spacing}{1.5} 
+				{\documentTitle}
+			\end{Spacing}
+		\fi
+		\vfill
+
+		\rule{3cm}{0.5pt}\\
+		\vfill
+
+		A \documentType \\
+		Presented to the \ifGrad \else Faculty of the \fi \\
+		\ifGrad
+			Graduate School of the \\
+		\else
+			\department \\
+		\fi
+		\college \\
+		De La Salle University \\
+		\vfill
+
+		\rule{3cm}{0.5pt}\\
+		\vfill
+
+		In Partial Fulfillment of the\\
+		Requirements for the Degree of\\
+		\degreeType \ in \degree \\
+		\vfill
+
+		\rule{3cm}{0.5pt}\\
+		\vfill
+
+		by \\
+		\vspace{2.5ex}
+
+		\foreach \n in {1,...,\numberOfAuthors}{
+		\MakeTextUppercase{
+					\documentAuthor{surname\n}}, \ \documentAuthor{firstname\n} \\
+		}
+		\vspace{2.5ex}
+
+		\monthyeardate\today \\
+	}
+\end{SingleSpace}
+}
+\cleardoublepage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifGrad
+	\phantomsection
+	\addcontentsline{toc}{chapter}{%
+	\ifGrad Approval Sheet \else \documentType \ Approval Sheet \fi}
+	{
+	\thispagestyle{empty}
+	\begin{SingleSpace}
+		\begin{center} 
+			{\normalfont \Large \bfseries \rmfamily 
+			\MakeTextUppercase{
+			\ifGrad Approval Sheet \else \documentType \ Approval Sheet \fi}}
+		\end{center}
+		\vspace{\afterchapskip}
+		
+		\noindent This \MakeTextLowercase{\documentType}  entitled:
+		\vfill
+						
+		\begin{center}
+			{\bfseries ``\documentTitle''}
+		\end{center}
+	  \vfill
+		
+		\noindent prepared and submitted by 
+		\foreach \n in {1,...,\numberOfAuthors}{\
+		{\bfseries \documentAuthor{firstname\n}} \ 
+		{\bfseries \documentAuthor{surname\n}},}
+		in partial fulfillment of the requirements for the degree of
+		{\bfseries \degreeType \ in \ \degree} \  
+		has been examined and is recommended for acceptance and approval 
+		for ORAL~EXAMINATION.\\
+		\vfill
+										
+		\begin{tabular}{c c c}
+		\hspace {9em} & \hspace {9em} & \rule{5cm}{.4pt}\\
+		& & {\bfseries \documentAdviserTitle\ \documentAdviser}\\
+		& & {\itshape Adviser} \\
+		\end{tabular}
+		\vfill
+
+		\noindent Approved by the Committee on Oral Examination 
+		with a defense result of 
+		\rule{3cm}{.4pt} on \ \approvalDate.\\
+		\vfill
+					
+		{
+		\centering
+		\rule{5cm}{.4pt}\\
+		{\bfseries \examinerChairTitle \ \examinerChair}\\
+		{\itshape Chair} \\
+		\vfill
+
+		\begin{tabular}{c c c}
+		\rule{5cm}{.4pt} & \hspace {8em} & \rule{5cm}{.4pt}\\
+		{\bfseries \examinerATitle \ \examinerA} & & 
+		{\bfseries \examinerBTitle \ \examinerB}\\ 
+		{\itshape Member} & & {\itshape Member} \\
+		\end{tabular}
+		\vfill
+
+		\ifPhD
+			\begin{tabular}{c c c}
+			\rule{5cm}{.4pt} & \hspace {8em} & \rule{5cm}{.4pt}\\
+			{\bfseries \examinerCTitle \ \examinerC} & & 
+			{\bfseries \examinerDTitle \ \examinerD}\\ 
+			{\itshape Member} & & {\itshape Member} \\
+			\end{tabular}
+			\vfill
+		\fi
+		}
+
+	\end{SingleSpace}
+	}	
+\else	
+	{
+	\thispagestyle{empty}
+	\begin{SingleSpace}
+		\phantomsection
+		\addcontentsline{toc}{chapter}{Oral Defense Recommendation Sheet}
+
+		\begin{center} 
+		{\normalfont \Large \bfseries \rmfamily 
+		\MakeTextUppercase{Oral Defense Recommendation Sheet}}
+		\end{center}
+		\vspace{\afterchapskip}
+
+		\noindent This \MakeTextLowercase{\documentType},  
+		entitled {\bfseries \documentTitle}, 
+		prepared and submitted by 
+		\ifGroupID thesis group, \groupID, composed of\fi:\\
+
+		{\centering  
+		\foreach \n in {1,...,\numberOfAuthors}{
+		\MakeTextUppercase{
+		\documentAuthor{surname\n}}, \ \documentAuthor{firstname\n} \\}
+		}
+		\vspace{3ex}
+
+		\noindent in partial fulfillment of the  requirements for the degree of
+		{\bfseries \degreeType \ in \degree} \ ({\bfseries \degreeAbbrv}) 
+		has been examined and is recommended for acceptance and approval 
+		for {\bfseries ORAL DEFENSE}.\\
+		\vfill
+
+		{\centering
+		\rule{5cm}{.4pt}\\
+		{\bfseries \documentAdviserTitle\ \documentAdviser}\\
+		{\itshape Adviser} \\
+		\vspace{4ex}
+		\usdate\today \\
+		}
+	\end{SingleSpace}		
+	}
+\fi	
+\ULCornerWallPaper{1}{../format/dlsu_thesis_paper_letterhead}
+\cleardoublepage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifFinished
+	\phantomsection
+	\addcontentsline{toc}{chapter}{%
+	\ifGrad Approval Sheet \else \documentType \ Approval Sheet \fi}
+	{
+	\thispagestyle{empty}
+	\begin{SingleSpace}
+		\begin{center} 
+			{\normalfont \Large \bfseries \rmfamily 
+			\MakeTextUppercase{
+			\ifGrad Approval Sheet \else \documentType \ Approval Sheet \fi}}
+		\end{center}
+		\vspace{\afterchapskip}
+
+		\ifGrad
+				\noindent This \MakeTextLowercase{\documentType}  entitled:
+						
+				\begin{center}
+					{\bfseries ``\documentTitle''}
+				\end{center}
+			
+				\noindent prepared and submitted by 
+				\foreach \n in {1,...,\numberOfAuthors}{\
+				{\bfseries \documentAuthor{firstname\n}} \ 
+				{\bfseries \documentAuthor{surname\n}},}
+				in partial fulfillment of the requirements for the degree of
+				{\bfseries \degreeType \ in \ \degree} \  
+				has been examined and is recommended for acceptance and approval 
+				for ORAL~EXAMINATION.
+				\vfill
+												
+				\begin{tabular}{c c c}
+	      \hspace {9em} & \hspace {9em} & \rule{5cm}{.4pt}\\
+				& & {\bfseries \documentAdviserTitle\ \documentAdviser}\\
+				& & {\itshape Adviser} \\
+				\end{tabular}
+				\vfill
+		
+				\noindent Approved by the Committee on Oral Examination with a grade of 
+				PASSED on \ \approvalDate.\\
+							
+				{
+				\centering
+				\rule{5cm}{.4pt}\\
+				{\bfseries \examinerChairTitle \ \examinerChair}\\
+				{\itshape Chair} \\
+				\vfill
+
+				\begin{tabular}{c c c}
+				\rule{5cm}{.4pt} & \hspace {8em} & \rule{5cm}{.4pt}\\
+				{\bfseries \examinerATitle \ \examinerA} & & 
+				{\bfseries \examinerBTitle \ \examinerB}\\ 
+				{\itshape Member} & & {\itshape Member} \\
+				\end{tabular}
+				\vfill
+
+				\ifPhD
+					\begin{tabular}{c c c}
+					\rule{5cm}{.4pt} & \hspace {8em} & \rule{5cm}{.4pt}\\
+					{\bfseries \examinerCTitle \ \examinerC} & & 
+					{\bfseries \examinerDTitle \ \examinerD}\\ 
+					{\itshape Member} & & {\itshape Member} \\
+					\end{tabular}
+					\vfill
+				\fi
+				}
+				
+				\noindent Accepted in partial fulifillment of the requirements for 
+				the degree of {\bfseries \degreeType \ in \ \degree}. 
+				\vfill
+
+				\begin{tabular}{c c c}
+	      \hspace {7em} & \hspace {8em} & \rule{5cm}{.4pt}\\
+				& & {\bfseries \deanTitle\ \deanName}\\
+				& & {\itshape Dean, \college} \\
+				\end{tabular}
+				\vfill
+
+		\else
+				\noindent This \MakeTextLowercase{\documentType}  
+				entitled {\bfseries \documentTitle}, prepared and submitted by:\\
+
+				{\centering 
+				\foreach \n in {1,...,\numberOfAuthors}{\MakeTextUppercase{
+				\documentAuthor{surname\n}}, \ \documentAuthor{firstname\n} \\}
+				}
+				\vspace{3ex}
+
+				\noindent \ifGroupID with group number \groupID \fi \ 
+				in partial fulfillment of the  requirements for the degree of
+				{\bfseries \degreeType \ in \ \degree} \ ({\bfseries \degreeAbbrv}) 
+				has been examined and is recommended for acceptance and approval.\\
+				\vfill
+
+				{\centering
+				{\bfseries PANEL OF EXAMINERS}\\
+				\vspace{2ex}
+				\vfill
+
+				\rule{5cm}{.4pt}\\
+				{\bfseries \examinerChairTitle \ \examinerChair}\\
+				{\itshape Chair} \\
+				\vfill
+
+				\begin{tabular}{c c c}
+				\rule{5cm}{.4pt} & \hspace {10em} & \rule{5cm}{.4pt}\\
+				{\bfseries \examinerATitle \ \examinerA} & & 
+				{\bfseries \examinerBTitle \ \examinerB}\\ 
+				{\itshape Member} & & {\itshape Member} \\
+				\end{tabular}
+				\vfill
+				
+				\rule{5cm}{.4pt}\\
+				{\bfseries \documentAdviserTitle\ \documentAdviser}\\
+				{\itshape Adviser} \\
+				\vspace{4ex}
+				Date: \usdate\today \\
+				}
+				\vfill					
+				
+		\fi
+		
+	\end{SingleSpace}
+}		
+\fi
+\cleardoublepage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifFinished
+	\chapter*{}
+	{
+	\thispagestyle{empty}
+	\begin{SingleSpace}
+		\vfill
+		
+		\ifPutLineNumbers
+			\TitleGuide
+		\fi
+		
+		\vfill
+		{
+		\footnotesize
+		\begin{Spacing}{0.75}
+			\noindent \the\year \ \\
+			\noindent All Rights Reserved. 
+			No part of this publication may be reproduced, 
+			stored in an information retrieval system, or 
+			transmitted, in any form or by any means, 
+			electronic, mechanical, by photocopying, scanning, recording, or otherwise, 
+			except under the terms of the applicable law.
+		\end{Spacing}
+		}
+	\end{SingleSpace}
+	}
+	\cleardoublepage
+
+	\phantomsection
+	\addcontentsline{toc}{chapter}{Acknowledgment}
+	\begin{SingleSpace}
+		\input{acknowledgment.tex}
+		\ifPutLineNumbers
+			\AcknowledgmentGuide
+		\fi
+	\end{SingleSpace}
+	\cleardoublepage
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\phantomsection
+\addcontentsline{toc}{chapter}{Abstract}
+\begin{DoubleSpace}
+	\input{abstract.tex}
+	\ifPutLineNumbers
+		\AbstractGuide
+	\fi
+	\vspace{3ex} \noindent {\itshape Index Terms}---\keywords.
+\end{DoubleSpace}
+\cleardoublepage

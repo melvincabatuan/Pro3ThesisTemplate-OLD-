@@ -1,0 +1,99 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% the following are other useful and important packages and settings for the document review and publication
+
+\ifFigures
+\else
+% the following two lines are for disabling the rendering of graphics in the figure environment
+\excludecomment{figure} 
+\let\endfigure\relax
+\fi
+
+\ifPutLineNumbers
+\usepackage{lineno} % for line numbers
+\linenumbersep=0.75cm
+\linenumbers 
+\fi
+
+\usepackage{makeidx} % for making an index
+\makeindex
+
+% note that the glossaries package is currently unsuccessful with the current settings, so datagidx has been used; the input TeX files contains the different ''glossary'' items
+\usepackage[optimize=low]{datagidx}
+\newgidx{abbreviation}{Abbreviations}
+\newgidx{notation}{Notation}
+\newgidx{glossary}{Glossary}
+\input{abbreviation.tex}
+\input{notation.tex}
+\input{glossary.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% the following are for setting the PDF info/properties
+
+%\newcommand{\Concatenate}%
+%{%
+    %\gdef\Author{} %
+    %\foreach \n in {1,...,\numberOfAuthors}%
+    %{%
+        %\xdef\Author{\documentAuthor{firstname\n} \ \documentAuthor{surname\n}; \Author}%
+    %}%
+%}
+%\newcommand{\allAuthors}{\Concatenate\Author} % does not work at the moment
+
+\hypersetup{%
+pdftitle = \documentTitle,
+pdfsubject = \documentType,
+pdfauthor = {\textcopyright 
+	\ De La Salle University; 
+	\documentAuthor{firstname1}  
+	\ \documentAuthor{surname1} (et al.);  
+	\documentAdviserTitle\ \documentAdviser},
+pdfkeywords = \keywords,
+breaklinks = true, 
+colorlinks = true, 
+linkcolor = black, 
+urlcolor = black, 
+citecolor = black, 
+bookmarksopen = true, 
+bookmarksopenlevel = 0,
+pdfstartview = FitH,}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% the following are for the DLSU thesis letterhead and its bordersize
+
+\usepackage{wallpaper} % for putting DLSU thesis paper letterhead; note that the background package fails that is why the wallpaper package has been used
+\usepackage{geometry}
+\geometry{left=36mm, right=29mm, bindingoffset=0mm, 
+          top=49mm, bottom=29mm, headsep=25mm} % for setting the bordersize; headsep is the distance of the header from the first text line
+					
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% the following are for suggested guides
+\newcommand{\TitleGuide}{%
+%The \textbf{title} must be reflective of its problem.	Use the following checklist to help you in making the title.
+
+%\begin{itemize}
+	%\item[$\square$] WHAT question: Will answer the following
+	%
+	%\begin{itemize}
+		%\item[$\square$] Did you put what you are trying to investigate?
+		%\item[$\square$] Did you indicate what you are trying to find out, determine or discover? 
+	%\end{itemize}
+		%
+	%\item[$\square$] WHO question: Will answer who are the respondents or subjects of the study
+	%
+	%\item[$\square$] WHERE question: Will indicate the research locale, setting or the place where the research study is conducted.
+%\end{itemize}
+}
+
+\newcommand{\AcknowledgmentGuide}{Write this prior to hard binding if you have submitted all requirements and are told by your adviser that you have passed.}
+
+
+\newcommand{\AbstractGuide}{%
+Keep your abstract short by giving the gist/nutshell of your \MakeTextLowercase{\documentType}.	 %Use the following checklist questions to help you in crafting your abstract.	
+
+%\begin{itemize}
+	%\item[$\square$] Did you briefly state what you intend to do?  
+	%\item[$\square$] Did you concisely discuss the problem statement?
+	%\item[$\square$] Did you tersely mention the objectives in general terms? 
+	%\item[$\square$] Did you succinctly describe the methodology for the target audience?
+%\end{itemize}
+}
