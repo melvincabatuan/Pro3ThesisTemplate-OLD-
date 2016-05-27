@@ -2,8 +2,8 @@
 
 all:
 
-	pdflatex dissertation.tex
-	bibtex dissertation.aux
+	pdflatex document.tex
+	bibtex document.aux
 
 clean:
 
